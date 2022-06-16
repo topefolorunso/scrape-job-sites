@@ -59,6 +59,9 @@ class Browser():
 
         return(job_info)
 
+    def close_browser(self):
+        self.browser.close()
+
      
 class DataFrame():
 
@@ -83,6 +86,7 @@ def scrape_all_jobs(url):
     
     browser.load_all_jobs()
     job_info = browser.scrape_all_jobs()
+    browser.close_browser()
     return job_info
 
 def export_jobs_to_file(job_dict, path_to_file):
