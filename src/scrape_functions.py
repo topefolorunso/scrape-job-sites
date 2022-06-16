@@ -104,3 +104,11 @@ def filter_jobs(df, path_to_file, *args):
 
     filtered_df.to_csv(path_to_file, index=False)
     return filtered_df
+
+
+def get_file_path(file_name):
+
+    path_prefix = '../output_files/'
+    path_to_file = f'{path_prefix}{file_name}'
+
+    return path_to_file
