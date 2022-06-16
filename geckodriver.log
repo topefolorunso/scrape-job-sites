@@ -819,12 +819,11 @@ console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resou
 DevTools listening on ws://localhost:59781/devtools/browser/3787e793-6566-4e43-b31f-f9745ae7d01e
 Read port: 59837
 1655388689929	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1655389044707	geckodriver	INFO	Listening on 127.0.0.1:60772
-1655389047667	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "60773" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofileRjK7TL"
-*** You are running in headless mode.
-1655389050217	Marionette	INFO	Marionette enabled
-WebDriver BiDi listening on ws://localhost:60773
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+FX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofileRjK7TL\\search.json.mozlz4", (void 0)))
 1655389055972	Marionette	INFO	Listening on port 60817
 DevTools listening on ws://localhost:60773/devtools/browser/c8f7f35a-6d57-4440-ba05-da8c9cca741c
@@ -832,12 +831,11 @@ Read port: 60817
 1655389056194	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 767))
 console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
-1655389135201	geckodriver	INFO	Listening on 127.0.0.1:61063
-1655389138250	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "61064" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofiledjIXcf"
-*** You are running in headless mode.
-1655389138813	Marionette	INFO	Marionette enabled
-WebDriver BiDi listening on ws://localhost:61064
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+FX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofiledjIXcf\\search.json.mozlz4", (void 0)))
 1655389142987	Marionette	INFO	Listening on port 61099
 DevTools listening on ws://localhost:61064/devtools/browser/3783826f-a031-4410-85c1-db7e4427cf12
@@ -876,3 +874,27 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 DevTools listening on ws://localhost:64204/devtools/browser/c49e4f6c-25ee-4f60-9b36-22256f6d536d
 Read port: 64249
 1655390441471	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1655396261936	geckodriver	INFO	Listening on 127.0.0.1:53140
+1655396265101	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "53141" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofile5QLEjU"
+*** You are running in headless mode.
+1655396269230	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:53141
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofile5QLEjU\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 767))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+1655396284480	Marionette	INFO	Listening on port 53256
+Read port: 53256
+1655396284870	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:53141/devtools/browser/77b9c89d-16b1-4415-9003-d0a2087b42ca
+1655396649841	geckodriver	INFO	Listening on 127.0.0.1:54314
+1655396653161	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "54315" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofileCJ84Ce"
+*** You are running in headless mode.
+1655396654614	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:54315
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\HP\\AppData\\Local\\Temp\\rust_mozprofileCJ84Ce\\search.json.mozlz4", (void 0)))
+1655396661784	Marionette	INFO	Listening on port 54366
+DevTools listening on ws://localhost:54315/devtools/browser/ede6514f-86f5-42ba-bd1d-ee5c54799364
+Read port: 54366
+1655396662110	RemoteAgent	WARN	TLS certificate errors will be ignored for this session

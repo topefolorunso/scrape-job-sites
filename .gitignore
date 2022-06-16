@@ -1,5 +1,7 @@
 scraping-spotify-job-site/
 *.csv
 *.ipynb
-.ipynb_checkpoints
-__pycache__
+.ipynb_checkpoints/
+__pycache__/
+*.log
+
