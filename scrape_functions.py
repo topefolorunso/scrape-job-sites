@@ -1,3 +1,5 @@
+from doctest import FAIL_FAST
+from textwrap import indent
 import pandas as pd
 
 from selenium import webdriver
@@ -74,7 +76,6 @@ class DataFrame():
         print(f'exporting data to {path_to_file} ...')
         self.df.to_csv(path_to_file)
 
-    # def filter_jobs(self, )
         
 
 def scrape_all_jobs(url):
@@ -88,6 +89,14 @@ def export_jobs_to_file(job_dict, path_to_file):
     job_df = pd.DataFrame(job_dict)
 
     print(f'exporting data to {path_to_file} ...')
-    # print(job_df.head(10))
-    job_df.to_csv(path_to_file)
-    # job_df.export_to_file(path_to_file)
+    job_df.to_csv(path_to_file, index=False)
+    return job_df
+
+def filter_jobs(df, path_to_file, *args):
+    filtered_df = df
+
+    for keyword in args:
+        filtered_df = filtered_df[filtered_df.role.str.contains(keyword)]
+
+    filtered_df.to_csv(path_to_file, index=False)
+    return filtered_df
