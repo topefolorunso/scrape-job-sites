@@ -89,12 +89,14 @@ def scrape_all_jobs(url):
     browser.close_browser()
     return job_info
 
+
 def export_jobs_to_file(job_dict, path_to_file):
     job_df = pd.DataFrame(job_dict)
 
     print(f'exporting data to {path_to_file} ...')
     job_df.to_csv(path_to_file, index=False)
     return job_df
+
 
 def filter_jobs(df, path_to_file, *args):
     filtered_df = df
