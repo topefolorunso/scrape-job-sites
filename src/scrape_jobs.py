@@ -1,4 +1,3 @@
-from requests import get
 from scrape_functions import *
 
 def scrape_webpage(url, file_name, keywords):
