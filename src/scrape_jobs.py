@@ -1,22 +1,28 @@
-from scrape_functions import *
+from helper_functions import *
 
-def scrape_webpage(url, file_name, keywords):
+companies = ['spotify', 'zalando']
 
-    job_dict = scrape_all_jobs(url)
+keywords_dict = {'spotify': ('Associate', 'Engineer'), 'zalando': ('Engineer')}
+urls_dict = {'spotify': "https://www.lifeatspotify.com/jobs", 'zalando': "https://jobs.zalando.com/en/jobs"}
+
+def scrape_webpage(company, url, file_name, keywords):
+    job_dict = scrape_all_jobs(company, url)
 
     path_to_file = get_file_path(file_name)
     job_df = export_jobs_to_file(job_dict, path_to_file)
     print('export completed... 100%')
 
     filtered_path = get_file_path('filtered_' + file_name)
-    filter_jobs(job_df, filtered_path, *keywords)
+    filter_jobs(job_df, filtered_path, *keywords, type=company)
 
 if __name__ == '__main__':
 
-    url = "https://www.lifeatspotify.com/jobs"
-    file_name = 'spotify-jobs.csv'
-    keywords = ('Associate', 'Engineer')
+    for company in companies:
+        keywords = keywords_dict[company]
+        url = urls_dict[company]
+        file_name = f'{company}-jobs.csv'
 
-    print(f'scraping {url} ...')
-    scrape_webpage(url, file_name, keywords)
+        print(f'scraping {company} job site ...')
+        scrape_webpage(company, url, file_name, keywords)
+
     print('scrape job completed... 100%')

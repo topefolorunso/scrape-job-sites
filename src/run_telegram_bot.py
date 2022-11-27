@@ -3,39 +3,86 @@ import requests
 import time
 
 
+companies = ['spotify', 'zalando']
+
 def fetch_dataframe(file_name):
-    df = pd.read_csv(f'../output_files/{file_name}')
+    file_path = f'output_files/{file_name}'
+
+    while True:
+        try:
+            df = pd.read_csv(file_path, usecols=['role', 'location', 'url'])
+            break
+
+        except FileNotFoundError:
+            job_header = ['role', 'location', 'url']
+            pd.DataFrame(columns=job_header).to_csv(file_path, index=False)
+            continue
+
     return df
 
-def generate_messages(df):
+def update_cache(df, roles, locations, urls):
+    new_job_info = {}
 
-    jobs = []
+    new_job_info['role'] = roles
+    new_job_info['location'] = locations
+    new_job_info['url'] = urls
+
+    new_df = pd.DataFrame(new_job_info)
+    new_df.to_csv('output_files/cached_spotify-jobs.csv', index=False, mode='a', header=False)
+    return
+
+def generate_messages(df, cache_df):
+
+    cache_indx = cache_df.set_index(['role', 'location']).index
+
+    latest_jobs = []
+
+    new_roles = []
+    new_urls = []
+    new_locations = []
+
     for row in range(len(df)):
-        job = ''
-        for column in df:
-            job += f'{column.capitalize()} - {df.loc[row, column]}\n'
+        role = df.loc[row, 'role']
+        location = df.loc[row, 'location']
 
-        job = job.replace('&', '%26')
-        jobs.append(job)
+        if (role, location) not in cache_indx:
+            url = df.loc[row, 'url']
+            job = f'Role - {role}\nLocation - {location}\nURL - {url}'
+            job = job.replace('&', '%26')
 
-    return jobs
+            latest_jobs.append(job)
 
-    # for job in jobs:
-    #     print(job)
+            new_roles.append(role)
+            new_locations.append(location)
+            new_urls.append(url)
+
+    if len(new_roles)!=0 and len(new_locations)!=0 and len(new_urls)!=0:
+        update_cache(df=cache_df, roles=new_roles, locations=new_locations, urls=new_urls)
+
+    return latest_jobs
 
 
 def send_message(message):
+    # print(message)
 
-    message_url = f'https://api.telegram.org/bot5550807059:AAEFaAQ53OyWQpz23dsVWDwkKpRx-xz36T4/sendMessage?chat_id=-776374127&text={message}'
+    url_prefix = 'https://api.telegram.org/bot5550807059:AAEFaAQ53OyWQpz23dsVWDwkKpRx-xz36T4/sendMessage'
+    url_query = f'?chat_id=-776374127&text={message}'
+
+    message_url = url_prefix + url_query
     requests.get(message_url)
 
 
 if __name__ == '__main__':
-    file_name = 'filtered_spotify-jobs.csv'
 
-    message_df = fetch_dataframe(file_name)
-    messages = generate_messages(message_df)
+    for company in companies:
+        found_jobs = f'filtered_{company}-jobs.csv'
+        cached_jobs = f'cached_{company}-jobs.csv'
 
-    for message in messages:
-        send_message(message)
-        time.sleep(5)
+        new_jobs_df = fetch_dataframe(found_jobs)
+        cached_df = fetch_dataframe(cached_jobs)
+
+        latest_jobs = generate_messages(new_jobs_df, cached_df)
+
+        for job in latest_jobs:
+            send_message(message=job)
+            time.sleep(5)
