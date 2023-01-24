@@ -6,3 +6,6 @@ geckodriver.log
 *.csv
 venv/
 *.zip
+.env
+*.csv
+test.py

@@ -20,7 +20,7 @@ def fetch_dataframe(file_name):
 
     return df
 
-def update_cache(df, roles, locations, urls):
+def update_cache(cache_file, roles, locations, urls):
     new_job_info = {}
 
     new_job_info['role'] = roles
@@ -28,10 +28,10 @@ def update_cache(df, roles, locations, urls):
     new_job_info['url'] = urls
 
     new_df = pd.DataFrame(new_job_info)
-    new_df.to_csv('output_files/cached_spotify-jobs.csv', index=False, mode='a', header=False)
+    new_df.to_csv(f'output_files/{cache_file}', index=False, mode='a', header=False)
     return
 
-def generate_messages(df, cache_df):
+def generate_messages(df, cache_df, cache_file):
 
     cache_indx = cache_df.set_index(['role', 'location']).index
 
@@ -57,7 +57,7 @@ def generate_messages(df, cache_df):
             new_urls.append(url)
 
     if len(new_roles)!=0 and len(new_locations)!=0 and len(new_urls)!=0:
-        update_cache(df=cache_df, roles=new_roles, locations=new_locations, urls=new_urls)
+        update_cache(cache_file=cache_file, roles=new_roles, locations=new_locations, urls=new_urls)
 
     return latest_jobs
 
@@ -81,7 +81,7 @@ if __name__ == '__main__':
         new_jobs_df = fetch_dataframe(found_jobs)
         cached_df = fetch_dataframe(cached_jobs)
 
-        latest_jobs = generate_messages(new_jobs_df, cached_df)
+        latest_jobs = generate_messages(new_jobs_df, cached_df, cached_jobs)
 
         for job in latest_jobs:
             send_message(message=job)

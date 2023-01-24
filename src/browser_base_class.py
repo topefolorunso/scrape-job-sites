@@ -8,7 +8,7 @@ class Browser():
     OPTIONS = Options()
     OPTIONS.add_argument('--no-sandbox')
     OPTIONS.add_argument('--window-size=1420,1080')
-    # OPTIONS.add_argument('--headless')
+    OPTIONS.add_argument('--headless')
     OPTIONS.add_argument('--disable-gpu')
 
     DRIVER_PATH = './chromedriver.exe'

@@ -1,4 +1,4 @@
-from ..browser_base_class import Browser
+from browser_base_class import Browser
 
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By

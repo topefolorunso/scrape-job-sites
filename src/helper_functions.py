@@ -1,8 +1,9 @@
 import os
 import pandas as pd
 
-from .browsers.spotify_browser import SpotifyBrowser
-from .browsers.zalando_browser import ZalandoBrowser
+from browsers.spotify_browser import SpotifyBrowser
+from browsers.zalando_browser import ZalandoBrowser
+from browsers.hellofresh_browser import HellofreshBrowser
 
 
 def scrape_all_jobs(company: str, url):
