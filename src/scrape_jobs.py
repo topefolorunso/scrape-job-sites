@@ -14,9 +14,6 @@ urls_dict = {
     'hellofresh': "https://careers.hellofresh.com/global/en/search-results"
     }
 
-def initialize_database():
-    pass
-
 def scrape_webpage(company, url, file_name, keywords):
     job_dict = scrape_all_jobs(company, url)
 

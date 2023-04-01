@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 
+import sqlite3
+
 from browsers.spotify_browser import SpotifyBrowser
 from browsers.zalando_browser import ZalandoBrowser
 from browsers.hellofresh_browser import HellofreshBrowser
@@ -16,6 +18,26 @@ def scrape_all_jobs(company: str, url):
     browser.close_browser()
     return job_info
 
+def connect_to_database():
+    try:
+        conn = sqlite3.connect('../database/jobs.db')
+        print('Database Iniialized')
+    except sqlite3.Error as error:
+        print('Error occurred: ', error)
+    return conn
+
+def query_database(conn, query):
+    try:
+        cursor = conn.cursor()
+        cursor.execute(query)
+        result = cursor.fetchall()
+    except sqlite3.Error as error:
+        print('Error occurred: ', error)
+    finally:
+        if conn:
+            conn.close()
+            print('Database Connection closed')
+        return result
 
 def export_jobs_to_file(job_dict, path_to_file):
     job_df = pd.DataFrame(job_dict)
