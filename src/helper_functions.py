@@ -21,7 +21,7 @@ def scrape_all_jobs(company: str, url):
 def connect_to_database():
     try:
         conn = sqlite3.connect('../database/jobs.db')
-        print('Database Iniialized')
+        print('Database connection iniialized')
     except sqlite3.Error as error:
         print('Error occurred: ', error)
     return conn
@@ -36,7 +36,7 @@ def query_database(conn, query):
     finally:
         if conn:
             conn.close()
-            print('Database Connection closed')
+            print('Database connection closed')
         return result
 
 def export_jobs_to_file(job_dict, path_to_file):
