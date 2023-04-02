@@ -1,3 +1,5 @@
+import chromedriver_autoinstaller
+
 from helper_functions import *
 
 companies = ('spotify', 'zalando',)
@@ -26,7 +28,10 @@ def scrape_webpage(company, url, file_name, keywords):
 
 if __name__ == '__main__':
 
-    connect_to_database()
+    chromedriver_autoinstaller.install()
+
+    conn = connect_to_database()
+    conn.close()
 
     for company in companies:
         keywords = keywords_dict[company]

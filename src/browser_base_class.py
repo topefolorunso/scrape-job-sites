@@ -11,11 +11,11 @@ class Browser():
     OPTIONS.add_argument('--headless')
     OPTIONS.add_argument('--disable-gpu')
 
-    DRIVER_PATH = './chromedriver.exe'
+    # DRIVER_PATH = './chromedriver.exe'
         
     def __init__(self, url) -> None:
         self.url = url
-        self.browser = webdriver.Chrome(executable_path=self.DRIVER_PATH, options=self.OPTIONS)
+        self.browser = webdriver.Chrome(options=self.OPTIONS)
         self.browser.get(self.url)
         time.sleep(5)
         print('webpage opened in background')

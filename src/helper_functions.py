@@ -27,7 +27,7 @@ def connect_to_database():
         print('Error occurred: ', error)
     return conn
 
-def query_database(conn, query):
+def query_database(conn, query=None):
     try:
         cursor = conn.cursor()
         cursor.execute(query)
