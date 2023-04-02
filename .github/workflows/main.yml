@@ -1,11 +1,15 @@
 name: Scrape Latest Jobs and Notify Telegram Group
+
 on:
-  workflow_dispatch:
   schedule:
     - cron:  '0 8/8 * * *'
+    
+  workflow_dispatch:
+  
 jobs:
   main:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checking out repo
         uses: actions/checkout@v3
