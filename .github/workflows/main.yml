@@ -1,5 +1,6 @@
 name: Scrape Latest Jobs and Notify Telegram Group
 on:
+  workflow_dispatch:
   schedule:
     - cron:  '0 8/8 * * *'
 jobs:
