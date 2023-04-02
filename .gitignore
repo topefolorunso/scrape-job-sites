@@ -1,11 +1,10 @@
-*.ipynb
 .ipynb_checkpoints/
 __pycache__/
-*.log
-geckodriver.log
-*.csv
-venv/
-*.zip
+
 .env
-*.csv
 test.py
+src/test.csv
+
+*.ipynb
+*.log
+*.zip
