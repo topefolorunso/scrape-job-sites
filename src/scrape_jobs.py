@@ -26,7 +26,7 @@ def scrape_webpage(company, url, file_name, keywords):
 
 if __name__ == '__main__':
 
-    initialize_database()
+    connect_to_database()
 
     for company in companies:
         keywords = keywords_dict[company]

@@ -20,9 +20,10 @@ def scrape_all_jobs(company: str, url):
 
 def connect_to_database():
     try:
-        conn = sqlite3.connect('../database/jobs.db')
+        conn = sqlite3.connect('database/jobs.db')
         print('Database connection iniialized')
     except sqlite3.Error as error:
+        conn = None
         print('Error occurred: ', error)
     return conn
 
@@ -33,6 +34,7 @@ def query_database(conn, query):
         result = cursor.fetchall()
     except sqlite3.Error as error:
         print('Error occurred: ', error)
+        result = None
     finally:
         if conn:
             conn.close()
