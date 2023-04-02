@@ -1,0 +1,43 @@
+name: Scrape Latest Jobs and Notify Telegram Group
+
+on:
+  schedule:
+    - cron:  '0 8/8 * * *'
+    
+  workflow_dispatch:
+  
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checking out repo
+        uses: actions/checkout@v3
+        
+      - name: Setting up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Installing package list
+        run: apt list --installed
+        
+      - name: Removing previous chrome instances on runner
+        run: sudo apt purge google-chrome-stable
+        
+      - name: Installing all necessary packages
+        run: pip install -r requirements.txt
+
+      - name: Running the job scraping script
+        run: python src/scrape_jobs.py
+        
+      - name: Running the notification script
+        run: python src/run_telegram_bot.py
+        
+      - name: Commit and Push The Results From Python Selenium Action
+        run: |
+         git config --global user.name "topefolorunso"
+         git config --global user.email "folorunsotemitope10@gmail.com"
+         git add -A
+         git commit -m "add new jobs"
+         git push
