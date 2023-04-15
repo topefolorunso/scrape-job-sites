@@ -19,7 +19,6 @@ def update_job_delivery(conn, url):
 
 
 def send_job_notification(conn, job):
-    # print(message)        
     company:str = job[0]
     role = job[1]
     location = job[2]

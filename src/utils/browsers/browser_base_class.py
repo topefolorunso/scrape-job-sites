@@ -10,8 +10,6 @@ class Browser():
     OPTIONS.add_argument('--window-size=1420,1080')
     OPTIONS.add_argument('--headless')
     OPTIONS.add_argument('--disable-gpu')
-
-    # DRIVER_PATH = './chromedriver.exe'
         
     def __init__(self, url) -> None:
         self.url = url
