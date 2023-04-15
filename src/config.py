@@ -1,4 +1,4 @@
-COMPANIES = ('spotify',)
+COMPANIES = ('spotify', 'zalando')
 
 
 
