@@ -1,10 +1,9 @@
 .ipynb_checkpoints/
 __pycache__/
+archive/
 
 .env
 test.py
-src/test.csv
+test.csv
 
 *.ipynb
-*.log
-*.zip
