@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.support.ui import WebDriverWait
 
-from browser_base_class import Browser
+from utils.browsers.browser_base_class import Browser
 
 
 
