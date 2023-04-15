@@ -1,11 +1,12 @@
-from .browser_base_class import Browser
+import time
 
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.support.ui import WebDriverWait
 
-import time
+from browser_base_class import Browser
+
 
 
 class SpotifyBrowser(Browser):

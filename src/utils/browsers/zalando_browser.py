@@ -2,7 +2,7 @@ import time
 
 from selenium.webdriver.common.by import By
 
-from browsers.browser_base_class import Browser
+from browser_base_class import Browser
 
 
 class ZalandoBrowser(Browser):
