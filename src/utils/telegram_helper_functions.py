@@ -24,14 +24,7 @@ def send_job_notification(conn, job):
     location = job[2]
     url = job[3]
     
-    message = f'''
-        {company.capitalize()}\n
-        =====================\n\n
-
-        Role - {role}\n
-        Location - {location}\n
-        URL - {url}
-        '''.replace('&', '%26')
+    message = f'{company.capitalize()}\n=====================\n\nRole - {role}\nLocation - {location}\nURL - {url}'.replace('&', '%26')
     
     url_prefix = 'https://api.telegram.org/bot5550807059:AAEFaAQ53OyWQpz23dsVWDwkKpRx-xz36T4/sendMessage'
     url_query = f'?chat_id=-776374127&text={message}'
