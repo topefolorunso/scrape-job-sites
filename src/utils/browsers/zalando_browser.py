@@ -63,7 +63,7 @@ class ZalandoBrowser(Browser):
             time.sleep(5)
 
         job_info['role'] = roles
-        job_info['exp_level'] = exps
+        job_info['experience_level'] = exps
         job_info['location'] = locations
         job_info['url'] = urls
         job_info['company'] = ['zalando'] * len(urls)

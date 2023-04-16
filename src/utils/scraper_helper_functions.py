@@ -27,12 +27,12 @@ def update_qualified_jobs(conn, keywords, company):
                 AND ({exp_keyword_clause})
             '''
         
-        print (modify_query)
+        # print (modify_query)
         query_database(conn=conn, type="update", query=modify_query)
 
     else:
         modify_query =  main_query
-        print (modify_query)
+        # print (modify_query)
         query_database(conn=conn, type="update", query=modify_query)
 
     return
@@ -56,7 +56,6 @@ def insert_jobs_to_db(job_dict, conn):
         VALUES
             {', '.join(values)}
         '''
-    
     
     # job_df = pd.DataFrame(job_dict)
     print(f'inserting jobs to database ...')
